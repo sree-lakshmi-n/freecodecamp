@@ -1,2 +1,60 @@
+// sass -watch scss:css
 @import "./variables";
 @import "./resets";
+
+@function weight($weight-name) {
+  @return map-get($font-weights, $weight-name);
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin theme($light-theme: true) {
+  @if ($light-theme) {
+    background: $primary-color;
+    color: $text-color;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
+
+//  Extends
+
+.main {
+  width: 80%;
+  margin: auto;
+  @include flex-center();
+
+  #{&} &__para1 {
+    // using maps
+    // font-weight: map-get($font-weights, bold);
+    // using functions
+    font-weight: weight(bold);
+
+    &:hover {
+      color: pink;
+    }
+  }
+
+  #{&} &__para2 {
+    @extend .main__para1;
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.light {
+  @include theme(true);
+}
