@@ -2,3 +2,23 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box; }
+
+.main {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .main .main__para1, .main .main__para2 {
+    font-weight: 700; }
+    .main .main__para1:hover, .main .main__para2:hover {
+      color: pink; }
+  .main .main__para2:hover {
+    color: #ff652f; }
+  @media (max-width: 800px) {
+    .main {
+      flex-direction: column; } }
+
+.light {
+  background: #272727;
+  color: #fff; }
